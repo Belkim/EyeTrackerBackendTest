@@ -40,6 +40,14 @@
             }
          
          }
+         window.addEventListener("load", function() {
+
+            GazeCloudAPI.OnCalibrationComplete =function(){ console.log('Calibración completa')  }
+            GazeCloudAPI.OnCamDenied =  function(){ console.log('No se puede obtener acceso a la cámara')  }
+            GazeCloudAPI.OnError =  function(msg){ console.log('ERROR: ' + msg)  }
+            GazeCloudAPI.UseClickRecalibration = true;
+            GazeCloudAPI.OnResult = PlotGaze; 
+         });
 
          //Funciones de usabilidad en una web
          GazeRecorderAPI.OnNavigation = function(url)
